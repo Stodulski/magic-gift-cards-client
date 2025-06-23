@@ -1,5 +1,5 @@
 import magicLogo from '../assets/magic_logo.webp'
-import serverFetch from '../utils/axios
+import serverFetch from '../utils/axios'
 import { useAuthStore } from '@/store/auth.'
 import { useNavigate } from 'react-router';
 export const NavBar = () => {

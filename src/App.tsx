@@ -3,7 +3,7 @@ import { AuthInitializer } from './utils/authInitializer'
 import { Auth } from './features/auth/components/auth'
 import { Toaster } from 'sonner'
 
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router'
+import { BrowserRouter, Routes, Route } from 'react-router'
 import { useAuthStore } from './store/auth.'
 import { Home } from './features/home/components/home'
 import { Admin } from './features/admin/components/admin'

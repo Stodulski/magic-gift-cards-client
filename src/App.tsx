@@ -36,8 +36,8 @@ function App () {
             </>
           ) : (
             <Route path='/' element={<Auth />} />
+      
           )}
-          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -29,7 +29,7 @@ function App () {
       />
       <BrowserRouter>
         <Routes>
-          {loading && isAuthenticated ? (
+          {!loading && isAuthenticated ? (
             <>
               <Route path='/' element={<Home />} />
               <Route path='/admin' element={<Admin />} />

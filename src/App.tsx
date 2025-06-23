@@ -10,6 +10,7 @@ import { Admin } from './features/admin/components/admin'
 
 function App () {
   const isAuthenticated = useAuthStore(s => s.isAuthenticated)
+  const loading = useAuthStore(s => s.loading)
   return (
     <>
       <AuthInitializer />
@@ -28,7 +29,7 @@ function App () {
       />
       <BrowserRouter>
         <Routes>
-          {isAuthenticated ? (
+          {loading && isAuthenticated ? (
             <>
               <Route path='/' element={<Home />} />
               <Route path='/admin' element={<Admin />} />

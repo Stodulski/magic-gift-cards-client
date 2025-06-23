@@ -1,5 +1,4 @@
 import { create } from 'zustand'
-import type { NavigateFunction } from 'react-router'
 
 import serverFetch from '../utils/axios'
 type AuthState = {

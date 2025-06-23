@@ -14,26 +14,14 @@ export const useAuthStore = create<AuthState>(set => ({
   isAuthenticated: false,
   loading: false,
 
-  setLoading: () =>
-    set(() => ({
-      loading: true
-    })),
-  setUnloading: () =>
-    set(() => ({
-      loading: false
-    })),
+  setLoading: () => set(() => ({ loading: true })),
+  setUnloading: () => set(() => ({ loading: false })),
 
-  login: () =>
-    set(() => ({
-      isAuthenticated: true
-    })),
-  logout: async () => {
-    const navigate = useNavigate();
-    navigate('/');
-  await serverFetch.delete('/auth')
-  set(() => ({
-    isAuthenticated: false
-  }))
-}
-    
+  login: () => set(() => ({ isAuthenticated: true })),
+
+  logout: async (navigate) => {
+    await serverFetch.delete('/auth')
+    set(() => ({ isAuthenticated: false }))
+    navigate('/')
+  }
 }))

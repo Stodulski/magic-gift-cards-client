@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import type { NavigateFunction } from 'react-router'
 
 import serverFetch from '../utils/axios'
 type AuthState = {
@@ -19,7 +20,7 @@ export const useAuthStore = create<AuthState>(set => ({
 
   login: () => set(() => ({ isAuthenticated: true })),
 
-  logout: async (navigate) => {
+  logout: async (navigate: NavigateFunction) => {
     await serverFetch.delete('/auth')
     set(() => ({ isAuthenticated: false }))
     navigate('/')

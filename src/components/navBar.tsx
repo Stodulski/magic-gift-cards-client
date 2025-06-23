@@ -1,6 +1,6 @@
 import magicLogo from '../assets/magic_logo.webp'
 import { useAuthStore } from '@/store/auth.'
-
+import { useNavigate } from 'react-router';
 export const NavBar = () => {
   const logout = useAuthStore(s=>s.logout)
   const navigate = useNavigate();

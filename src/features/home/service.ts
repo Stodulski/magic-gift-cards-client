@@ -10,7 +10,6 @@ export const getPlaces = () => {
         const result = await serverFetch.get('/places')
         setPlaces(result.data.data.places)
       } catch (error) {
-        toast.error('Server error.')
       }
     }
     fetchPlaces()

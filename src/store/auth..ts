@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-
+import serverFetch from '../utils/axios'
 type AuthState = {
   isAuthenticated: boolean
   loading: boolean
@@ -26,10 +26,11 @@ export const useAuthStore = create<AuthState>(set => ({
     set(() => ({
       isAuthenticated: true
     })),
-  logout: () =>
+  logout: async () =>
     set(() => ({
       isAuthenticated: false
     })
+      await serverFetch.delete('/auth')
        )
     
 }))

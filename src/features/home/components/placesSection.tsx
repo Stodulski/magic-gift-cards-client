@@ -18,7 +18,7 @@ export const PlacesSection = ({
   const { places } = getPlaces()
 
   return (
-    <Select onValueChange={handlePlace} required>
+    <Select onValueChange={handlePlace} required value={selectedPlace}>
       <SelectTrigger className='w-full bg-blue-700 min-h-12 [&>span]:text-white [&>svg]:stroke-white text-white cursor-pointer'>
         <SelectValue placeholder='Seleccione sucursal' />
       </SelectTrigger>

@@ -26,11 +26,11 @@ export const useAuthStore = create<AuthState>(set => ({
     set(() => ({
       isAuthenticated: true
     })),
-  logout: async () =>
-    set(() => ({
-      isAuthenticated: false
-    })
-      await serverFetch.delete('/auth')
-       )
+  logout: async () => {
+  await serverFetch.delete('/auth')
+  set(() => ({
+    isAuthenticated: false
+  }))
+}
     
 }))

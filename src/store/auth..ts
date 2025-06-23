@@ -20,9 +20,9 @@ export const useAuthStore = create<AuthState>(set => ({
 
   login: () => set(() => ({ isAuthenticated: true })),
 
-  logout: async (navigate: NavigateFunction) => {
-    await serverFetch.delete('/auth')
+  logout: async () => {
+
     set(() => ({ isAuthenticated: false }))
-    navigate('/')
+
   }
 }))

@@ -8,7 +8,7 @@ export const NavBar = () => {
   const handleLogout = async () => {
     await serverFetch.delete('/auth')
     logout();
-    navigate('/)
+    navigate('/')
   };
   return (
     <nav className='w-full py-5 px-5 flex absolute justify-between items-center'>

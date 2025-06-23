@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-import serverFetch from '../utils/axios'
+
 type AuthState = {
   isAuthenticated: boolean
   loading: boolean

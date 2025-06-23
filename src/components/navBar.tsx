@@ -3,11 +3,12 @@ import { useAuthStore } from '@/store/auth.'
 
 export const NavBar = () => {
   const logout = useAuthStore(s=>s.logout)
+  const navigate = useNavigate();
   return (
     <nav className='w-full py-5 px-5 flex absolute justify-between items-center'>
       <img src={magicLogo} alt='Magic Store logo' className=' invert w-32' />
       <button className='relative cursor-pointer py-2 px-4 text-center font-barlow inline-flex justify-center text-base uppercase text-black rounded-lg border-solid transition-transform duration-300 ease-in-out group outline-offset-4 focus:outline  focus:outline-black focus:outline-offset-4 overflow-hidden'>
-        <span className='relative z-20' onClick={logout}>Logout</span>
+        <span className='relative z-20' onClick={logout(navigate)}>Logout</span>
         <span className='absolute left-[-75%] top-0 h-full w-[50%] bg-white/20 rotate-12 z-10 blur-lg group-hover:left-[125%] transition-all duration-1000 ease-in-out' />
         <span className='w-1/2 drop-shadow-3xl transition-all duration-300 block border-[#000] absolute h-[20%] rounded-tl-lg border-l-2 border-t-2 top-0 left-0' />
         <span className='w-1/2 drop-shadow-3xl transition-all duration-300 block border-[#000] absolute group-hover:h-[90%] h-[60%] rounded-tr-lg border-r-2 border-t-2 top-0 right-0' />

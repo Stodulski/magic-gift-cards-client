@@ -23,8 +23,8 @@ function App () {
             maxWidth: '672px',
             boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
             borderRadius: '12px',
-            marginLeft: 'auto',
-            marginRight: 'auto'
+            left: '0',
+            right: '0'
           }
         }}
       />

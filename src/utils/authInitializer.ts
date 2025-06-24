@@ -3,7 +3,6 @@ import { useAuthStore } from '../store/auth'
 import serverFetch from './axios'
 
 export function AuthInitializer () {
-  const isAuthenticated = useAuthStore(s => s.isAuthenticated)
   const login = useAuthStore(s => s.login)
   const logout = useAuthStore(s => s.logout)
   const hasRun = useRef(false)
@@ -12,7 +11,6 @@ export function AuthInitializer () {
     const fetchSession = async () => {
       try {
         hasRun.current = true
-        console.log('a')
         const result = await serverFetch.get('/auth')
         login(
           result.data.data.user.id,
@@ -25,6 +23,6 @@ export function AuthInitializer () {
       }
     }
     fetchSession()
-  }, [isAuthenticated])
+  }, [])
   return null
 }

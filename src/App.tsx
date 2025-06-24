@@ -16,11 +16,13 @@ function App () {
         richColors
         toastOptions={{
           style: {
-            padding: '2rem',
-            fontSize: '18px',
-            marginTop: '20%',
-            width: "90vw",
-            maxWidth: "672px"
+            padding: '1.5rem 2rem',
+            fontSize: '16px',
+            marginTop: '10%', 
+            width: '90vw',
+            maxWidth: '672px',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
+            borderRadius: '12px'
           }
         }}
       />

@@ -11,6 +11,7 @@ export function AuthInitializer () {
     const fetchSession = async () => {
       try {
         hasRun.current = true
+        console.log('a')
         const result = await serverFetch.get('/auth')
         login(
           result.data.data.user.id,
@@ -18,6 +19,7 @@ export function AuthInitializer () {
           result.data.data.user.name
         )
       } catch (err) {
+        localStorage.removeItem('auth-storage')
         logout()
       }
     }

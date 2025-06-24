@@ -36,6 +36,7 @@ export const useAuthStore = create<AuthState>()(
         set({ isAuthenticated: false })
         set({ userId: null })
         set({ role: null })
+        set({ name: null })
       }
     }),
     {

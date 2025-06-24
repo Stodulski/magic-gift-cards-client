@@ -7,8 +7,9 @@ export const NavBar = () => {
   const navigate = useNavigate()
   const handleLogout = async () => {
     await serverFetch.delete('/auth')
-    navigate('/')
+    localStorage.removeItem('auth-storage')
     logout()
+    navigate('/')
   }
   return (
     <nav className='w-full py-5 px-5 flex absolute justify-between items-center'>

@@ -1,15 +1,15 @@
 import magicLogo from '../assets/magic_logo.webp'
 import serverFetch from '../utils/axios'
 import { useAuthStore } from '@/store/auth'
-import { useNavigate } from 'react-router'
 export const NavBar = () => {
   const logout = useAuthStore(s => s.logout)
-  const navigate = useNavigate()
   const handleLogout = async () => {
-    await serverFetch.delete('/auth')
-    localStorage.removeItem('auth-storage')
-    logout()
-    navigate('/')
+    try {
+      const result = await serverFetch.delete('/auth')
+      console.log(result.data.data.message)
+      localStorage.removeItem('auth-storage')
+      logout()
+    } catch (error) {}
   }
   return (
     <nav className='w-full py-5 px-5 flex absolute justify-between items-center'>

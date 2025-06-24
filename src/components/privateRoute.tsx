@@ -8,7 +8,6 @@ export function PrivateRoute () {
   const isAuthenticated = useAuthStore(s => s.isAuthenticated)
   const role = useAuthStore(s => s.role)
   if (!isAuthenticated) return <Auth />
-
   switch (role) {
     case UserRole.ADMIN:
       return <Admin />

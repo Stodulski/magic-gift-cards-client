@@ -23,8 +23,8 @@ export const login = () => {
     let toastId = toast.loading('Loading...', { duration: 2000 })
     try {
       const result = await serverFetch.post('/auth', {
-        username,
-        password
+        username: username.toLowerCase(),
+        password: password.toLowerCase()
       })
       login(
         result.data.data.user.id,

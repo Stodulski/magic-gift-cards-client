@@ -12,12 +12,12 @@ export const redeemCode = () => {
 
   const sendCode = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault()
-    let toastId = toast.loading('Loading...')
+    let toastId = toast.loading('Cargando...')
 
     try {
       const options = {
-        code: code.toLocaleLowerCase(),
-        userId: userId
+        code: code.toLowerCase(),
+        userId: userId?.toString()
       }
 
       const result = await serverFetch.put('/codes', options)

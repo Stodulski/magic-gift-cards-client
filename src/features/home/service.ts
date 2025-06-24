@@ -27,7 +27,7 @@ export const redeemCode = () => {
       })
     } catch (error: any) {
       toast.error(error.response.data.data.message, {
-        duration: Infinity,
+        duration: 1000,
         id: toastId
       })
     }

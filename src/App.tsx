@@ -18,11 +18,13 @@ function App () {
           style: {
             padding: '1.5rem 2rem',
             fontSize: '16px',
-            marginTop: '10%', 
+            marginTop: '10%',
             width: '90vw',
             maxWidth: '672px',
             boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
-            borderRadius: '12px'
+            borderRadius: '12px',
+            marginLeft: 'auto',
+            marginRight: 'auto'
           }
         }}
       />

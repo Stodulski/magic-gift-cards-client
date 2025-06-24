@@ -3,23 +3,8 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { createCode } from '../service'
 
-import { Dashboard } from './dashboard'
 export const Admin = () => {
-  const {
-    sendCode,
-    code,
-    email,
-    name,
-    phone,
-    province,
-    locality,
-    handleCode,
-    handleEmail,
-    handleLocality,
-    handleName,
-    handlePhone,
-    handleProvince
-  } = createCode()
+  const { sendCode, handleChange, form } = createCode()
   return (
     <main className=' w-full min-h-screen'>
       <NavBar />
@@ -29,41 +14,52 @@ export const Admin = () => {
           onSubmit={sendCode}
         >
           <div className='flex justify-center items-end flex-col gap-1'>
-            <Input
-              name='code'
-              type='text'
-              onChange={handleCode}
-              value={code}
-              required
-              placeholder='Ingrese el codigo...'
-              className='w-full h-12 bg-blue-700 placeholder:text-white/70 text-white'
-            />
+            <div className='flex flex-col sm:flex-row w-full gap-1'>
+              <Input
+                name='code'
+                type='text'
+                onChange={handleChange}
+                value={form.code}
+                required
+                placeholder='Ingrese el codigo'
+                className='w-full h-12 bg-blue-700 placeholder:text-white/70 text-white'
+              />
+              <Input
+                name='webId'
+                type='text'
+                onChange={handleChange}
+                value={form.webId}
+                required
+                placeholder='Ingrese el pedido'
+                className='w-full h-12 bg-blue-700 placeholder:text-white/70 text-white'
+              />
+            </div>
             <Input
               name='email'
               type='email'
-              onChange={handleEmail}
-              value={email}
+              onChange={handleChange}
+              value={form.email}
               required
-              placeholder='Ingrese email...'
+              placeholder='Ingrese email'
               className='w-full h-12 bg-blue-700 placeholder:text-white/70 text-white'
             />
             <div className='flex flex-col sm:flex-row w-full gap-1'>
               <Input
                 name='name'
                 type='text'
-                onChange={handleName}
-                value={name}
+                onChange={handleChange}
+                value={form.name}
                 required
-                placeholder='Ingrese nombre...'
+                placeholder='Ingrese nombre'
                 className='w-full h-12 bg-blue-700 placeholder:text-white/70 text-white'
               />
               <Input
                 name='phone'
                 type='phone'
-                onChange={handlePhone}
-                value={phone}
+                onChange={handleChange}
+                value={form.phone}
                 required
-                placeholder='Ingrese telefono...'
+                placeholder='Ingrese telefono'
                 className='w-full h-12 bg-blue-700 placeholder:text-white/70 text-white'
               />
             </div>
@@ -71,19 +67,19 @@ export const Admin = () => {
               <Input
                 name='locality'
                 type='text'
-                onChange={handleLocality}
-                value={locality}
+                onChange={handleChange}
+                value={form.locality}
                 required
-                placeholder='Ingrese localidad...'
+                placeholder='Ingrese localidad'
                 className='w-full h-12 bg-blue-700 placeholder:text-white/70 text-white'
               />
               <Input
                 name='province'
                 type='text'
-                onChange={handleProvince}
-                value={province}
+                onChange={handleChange}
+                value={form.province}
                 required
-                placeholder='Ingrese provincia...'
+                placeholder='Ingrese provincia'
                 className='w-full h-12 bg-blue-700 placeholder:text-white/70 text-white'
               />
             </div>
@@ -91,7 +87,6 @@ export const Admin = () => {
           <Button className='h-10 cursor-pointer'>Crear codigo</Button>
         </form>
       </section>
-      <Dashboard />
     </main>
   )
 }

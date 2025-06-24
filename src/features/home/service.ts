@@ -1,32 +1,13 @@
-import { useEffect, useState, type ChangeEvent } from 'react'
+import { useState, type ChangeEvent } from 'react'
 import serverFetch from '@/utils/axios'
 import { toast } from 'sonner'
-export const getPlaces = () => {
-  const [places, setPlaces] = useState([])
-
-  useEffect(() => {
-    const fetchPlaces = async () => {
-      try {
-        const result = await serverFetch.get('/places')
-        setPlaces(result.data.data.places)
-      } catch (error) {
-   
-      }
-    }
-    fetchPlaces()
-  }, [])
-  return { places }
-}
-
+import { useAuthStore } from '@/store/auth'
 export const redeemCode = () => {
+  const userId = useAuthStore(s => s.userId)
   const [code, setCode] = useState('')
-  const [selectedPlace, setSelectedPlace] = useState('')
 
   const handleCode = (e: ChangeEvent<HTMLInputElement>) => {
     setCode(e.target.value)
-  }
-  const handlePlace = (e: string) => {
-    setSelectedPlace(e)
   }
 
   const sendCode = async (e: ChangeEvent<HTMLFormElement>) => {
@@ -36,13 +17,9 @@ export const redeemCode = () => {
     try {
       const options = {
         code: code.toLocaleLowerCase(),
-        placeId: selectedPlace
+        userId: userId
       }
-      if (selectedPlace === '')
-        return toast.error('Seleccione sucursal.', {
-          duration: 200,
-          id: toastId
-        })
+
       const result = await serverFetch.put('/codes', options)
       toast.success(result.data.data.message, {
         id: toastId,
@@ -55,5 +32,5 @@ export const redeemCode = () => {
       })
     }
   }
-  return { sendCode, code, selectedPlace, handleCode, handlePlace }
+  return { sendCode, code, handleCode}
 }

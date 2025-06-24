@@ -3,11 +3,10 @@ import { toast } from 'sonner'
 
 import { useState } from 'react'
 import type { ChangeEvent } from 'react'
-import { useAuthStore } from '../../store/auth.'
+import { useAuthStore } from '../../store/auth'
 
 export const login = () => {
   const login = useAuthStore(s => s.login)
-
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
@@ -27,7 +26,11 @@ export const login = () => {
         username,
         password
       })
-      login()
+      login(
+        result.data.data.user.id,
+        result.data.data.user.role,
+        result.data.data.user.name
+      )
       toast.success(result.data.data.message, { duration: 2000, id: toastId })
     } catch (error: any) {
       toast.error(error.response.data.data.message, {

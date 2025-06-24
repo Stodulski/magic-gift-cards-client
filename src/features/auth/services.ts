@@ -20,7 +20,7 @@ export const login = () => {
 
   const sendLoginForm = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault()
-    let toastId = toast.loading('Loading...', { duration: 2000 })
+    let toastId = toast.loading('cargando...', { duration: 2000 })
     try {
       const result = await serverFetch.post('/auth', {
         username: username.toLowerCase(),
@@ -37,6 +37,7 @@ export const login = () => {
         duration: 2000,
         id: toastId
       })
+      throw new error()
     }
   }
 

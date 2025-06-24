@@ -10,8 +10,10 @@ export const AuthForm = () => {
   const { handleUsername, handlePassword, sendLoginForm, password, username } =
     login()
   const handleSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
-    await sendLoginForm(e)
-    navigate('/home')
+    try {
+      await sendLoginForm(e)
+      navigate('/home')
+    } catch (error) {}
   }
   return (
     <form

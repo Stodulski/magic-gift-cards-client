@@ -40,7 +40,7 @@ export const Dashboard = () => {
                 </AccordionTrigger>
                 <AccordionContent>
                   <span className='font-bold'>Pedido: </span>
-                  {code.webId ? code.webId : '-'}
+                  {code.webId ? code.webId.toUpperCase() : '-'}
                 </AccordionContent>
                 <AccordionContent>
                   <span className='font-bold'>Nombre: </span>

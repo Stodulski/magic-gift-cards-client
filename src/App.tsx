@@ -19,7 +19,7 @@ function App () {
             padding: '2rem',
             fontSize: '18px',
             marginTop: '20%',
-            width: "90%",
+            width: "90vw",
             maxWidth: "672px"
           }
         }}

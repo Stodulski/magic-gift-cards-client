@@ -3,6 +3,7 @@ import { useAuthStore } from '../store/auth'
 import serverFetch from './axios'
 
 export function AuthInitializer () {
+  const isAuthenticated = useAuthStore(s => s.isAuthenticated)
   const login = useAuthStore(s => s.login)
   const logout = useAuthStore(s => s.logout)
   const hasRun = useRef(false)
@@ -24,6 +25,6 @@ export function AuthInitializer () {
       }
     }
     fetchSession()
-  }, [])
+  }, [isAuthenticated])
   return null
 }

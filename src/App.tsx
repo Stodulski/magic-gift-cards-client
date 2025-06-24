@@ -13,6 +13,7 @@ function App () {
         closeButton
         visibleToasts={1}
         position='top-center'
+        richColors
         toastOptions={{
           style: {
             padding: '1.5rem 2rem',

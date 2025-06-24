@@ -17,8 +17,10 @@ function App () {
         toastOptions={{
           style: {
             padding: '2rem',
-            fontSize: '20px',
-            marginTop: '20%'
+            fontSize: '18px',
+            marginTop: '20%',
+            width: "90%",
+            maxWidth: "672px"
           }
         }}
       />

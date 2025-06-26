@@ -23,7 +23,7 @@ export const redeemCode = () => {
       const result = await serverFetch.put('/codes', options)
       toast.success(result.data.data.message, {
         id: toastId,
-        duration: Infinity
+        duration: 1000
       })
     } catch (error: any) {
       toast.error(error.response.data.data.message, {

@@ -11,7 +11,7 @@ function App () {
       <AuthInitializer />
       <Toaster
         closeButton
-        visibleToasts={1}
+        visibleToasts={3}
         position='top-center'
         richColors
         toastOptions={{

@@ -1,4 +1,6 @@
 import './index.css'
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 import { AuthInitializer } from './utils/authInitializer'
 import { Toaster } from 'sonner'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router'

@@ -7,7 +7,25 @@
   background-image: url('./assets//bg.jpeg');
   background-size: cover;
 }
+.auth_bg{
+  background-color: rgb(34, 18, 255)
+}
+.button_bg{
+  background-color: rgb(24, 24, 24);
+  border-radius: 10px;
+  color:white;
+}
 
+.input_home{
+  padding: 0 10px;
+  background-color: rgb(34, 18, 255);
+
+}
+.button_home{
+  padding: 0 10px;
+  background-color: rgb(27, 27, 27);
+  cursor: pointer;
+}
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

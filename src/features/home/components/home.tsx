@@ -19,17 +19,17 @@ export const Home = () => {
             <h1 className='mx-auto mb-5 text-2xl'>Verificacion Magic Store</h1>
           </div>
           <div className='flex justify-center items-end flex-col sm:flex-row gap-1'>
-            <Input
+            <input
               onChange={handleCode}
               value={code}
               name='code'
               type='text'
               required
               placeholder='Ingrese el codigo'
-              className='w-full h-12 bg-blue-700 placeholder:text-white/70 text-white'
+              className='w-full h-12  rounded-md input_home placeholder:text-white/70 text-white'
             />
           </div>
-          <Button className='h-10 cursor-pointer'>Verificar</Button>
+          <button className='w-full h-12 button_home  rounded-md input_home placeholder:text-white/70 text-white'>Verificar</button>
         </form>
       </section>
     </main>

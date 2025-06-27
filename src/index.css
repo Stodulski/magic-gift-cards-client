@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@import "tw-animate-css";
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -7,21 +7,24 @@
   background-image: url('./assets//bg.jpeg');
   background-size: cover;
 }
-.auth_bg{
-  background-color: rgb(34, 18, 255)
+.auth_bg {
+  background-color: rgb(54, 40, 255);
 }
-.button_bg{
-  background-color: rgb(24, 24, 24);
+.button_bg {
+  background-color: rgb(27, 27, 27);
   border-radius: 10px;
-  color:white;
+  color: white;
 }
-
-.input_home{
+.input_auth{
   padding: 0 10px;
-  background-color: rgb(34, 18, 255);
-
+  border-radius: 10px;
 }
-.button_home{
+
+.input_home {
+  padding: 0 10px;
+  background-color: rgb(54, 40, 255);
+}
+.button_home {
   padding: 0 10px;
   background-color: rgb(27, 27, 27);
   cursor: pointer;

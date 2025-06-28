@@ -1,5 +1,4 @@
 import magicLogo from '../../../assets/magic_logo.webp'
-import { Input } from '@/components/ui/input'
 import type { ChangeEvent } from 'react'
 import { useNavigate } from 'react-router'
 import { login } from '../services'

@@ -15,7 +15,7 @@ export const Dashboard = () => {
   return (
     <>
       <NavBar />
-      <main className='w-full pt-32 items-center flex flex-col '>
+      <main className='w-full pt-32 items-center flex flex-col  pb-32'>
         <h1 className='text-xl w-[90vw] mb-0.25 bg-zinc-900 text-white px-10 py-3 max-w-2xl font-semibold'>
           {loading
             ? 'Cargando...'

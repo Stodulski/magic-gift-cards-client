@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import serverFetch from '@/utils/axios'
 
 type Code = {
@@ -22,49 +22,54 @@ export const useCodes = () => {
   const [codes, setCodes] = useState<Code[]>([])
   const [page, setPage] = useState<number | null>(0)
   const [loading, setLoading] = useState(true)
-  const lastCodeRef = useRef<HTMLDivElement | null>(null)
   const isFetchingRef = useRef(false)
 
   const getAllCodes = async () => {
     if (isFetchingRef.current || page === null) return
-
     isFetchingRef.current = true
 
     try {
       setLoading(true)
       const result = await serverFetch.get(`/codes/${page}`)
       const nuevos = result.data.data.codes
+
       setCodes(prev => {
         const mapa = new Map<number, Code>()
         prev.forEach(code => mapa.set(code.id, code))
         nuevos.forEach((code: Code) => mapa.set(code.id, code))
         return Array.from(mapa.values())
       })
-      setPage(nuevos[nuevos.length - 1].id)
+
+      if (nuevos.length === 0) {
+        setPage(null) // ya no hay más páginas
+      } else {
+        setPage(nuevos[nuevos.length - 1].id)
+      }
     } catch (error) {
+      console.error(error)
     } finally {
       setLoading(false)
       isFetchingRef.current = false
     }
   }
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
+  const observer = useRef<IntersectionObserver | null>(null)
+
+  const lastCodeRef = useCallback(
+    (node: HTMLDivElement | null) => {
+      if (loading) return
+      if (observer.current) observer.current.disconnect()
+
+      observer.current = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
           getAllCodes()
         }
-      },
-      { threshold: 1.0 }
-    )
+      }, { threshold: 1.0 })
 
-    const node = lastCodeRef.current
-    if (node) observer.observe(node)
-
-    return () => {
-      if (node) observer.unobserve(node)
-    }
-  }, [lastCodeRef.current]) // importante: si cambia el nodo, re-observar
+      if (node) observer.current.observe(node)
+    },
+    [loading]
+  )
 
   useEffect(() => {
     getAllCodes()
@@ -72,7 +77,8 @@ export const useCodes = () => {
 
   return {
     codes,
-    lastCodeRef,
-    loading
+    page,
+    loading,
+    lastCodeRef
   }
 }
